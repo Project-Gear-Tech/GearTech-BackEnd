@@ -1,5 +1,8 @@
 package com.GearTech.geartech.controller;
 
+import java.util.Base64;
+import java.util.Collections;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,6 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.GearTech.geartech.entity.Aluno;
 import com.GearTech.geartech.repository.AlunoRepository;
 
+import io.jsonwebtoken.Jwts;
+import io.jsonwebtoken.SignatureAlgorithm;
+import io.jsonwebtoken.security.Keys;
+
 @RestController
 public class LoginAlunoController {
 
@@ -17,10 +24,21 @@ public class LoginAlunoController {
     private AlunoRepository alunoRepository;
 
     @PostMapping("/loginAluno")
-    public ResponseEntity<String> authenticate(@RequestBody LoginRequest loginRequest) {
+    public ResponseEntity<Object> authenticate(@RequestBody LoginRequest loginRequest) {
+        if (loginRequest.getNumMatricula() == null || loginRequest.getSenha() == null) {
+            return ResponseEntity.badRequest().body("Número de matrícula e senha são obrigatórios!");
+        }
+
         Aluno aluno = alunoRepository.findByNumMatricula(loginRequest.getNumMatricula());
         if (aluno != null && aluno.getSenha().equals(loginRequest.getSenha())) {
-            return ResponseEntity.ok("Login bem-sucedido!");
+            byte[] keyBytes = Keys.secretKeyFor(SignatureAlgorithm.HS512).getEncoded();
+            String base64EncodedKey = Base64.getEncoder().encodeToString(keyBytes);
+
+            String token = Jwts.builder()
+                    .setSubject(aluno.getNumMatricula().toString())
+                    .signWith(SignatureAlgorithm.HS512, base64EncodedKey)
+                    .compact();
+            return ResponseEntity.ok(Collections.singletonMap("token", token));
         } else {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciais inválidas!");
         }
@@ -46,4 +64,5 @@ public class LoginAlunoController {
             this.senha = senha;
         }
     }
+
 }
