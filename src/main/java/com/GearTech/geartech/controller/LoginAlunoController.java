@@ -25,16 +25,13 @@ public class LoginAlunoController {
 
     @PostMapping("/loginAluno")
     public ResponseEntity<Object> authenticate(@RequestBody LoginRequest loginRequest) {
-        if (loginRequest.getNumMatricula() == null || loginRequest.getSenha() == null) {
-            return ResponseEntity.badRequest().body("Número de matrícula e senha são obrigatórios!");
-        }
-
         Aluno aluno = alunoRepository.findByNumMatricula(loginRequest.getNumMatricula());
         if (aluno != null && aluno.getSenha().equals(loginRequest.getSenha())) {
             byte[] keyBytes = Keys.secretKeyFor(SignatureAlgorithm.HS512).getEncoded();
             String base64EncodedKey = Base64.getEncoder().encodeToString(keyBytes);
 
-            String token = Jwts.builder()
+            @SuppressWarnings("deprecation")
+			String token = Jwts.builder()
                     .setSubject(aluno.getNumMatricula().toString())
                     .signWith(SignatureAlgorithm.HS512, base64EncodedKey)
                     .compact();
