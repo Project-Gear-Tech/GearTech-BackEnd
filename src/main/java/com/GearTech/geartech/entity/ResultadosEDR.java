@@ -17,48 +17,46 @@ public class ResultadosEDR {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	public float d;//circulo primitivo
-	public float p; //passo
-	public float c; //folga da cabeca
-	public float ha; // altura cabeca dente
-	public float hf; // altura pe dente
-	public float h; //altura dente
-	public float da; //circulo cabeca
-	public float df; //circulo pe
-	public float a; //distecia dos eixos
-	public float dai; //circulo da cabeca interno
-	public float dfi; //circulo pe interno
-	public float ai; // distecia dos eixos interno
+	public float circuloPrimitivo1;
+	public float passo;
+	public float folgaCabeca;
+	public float alturaCabecaDente;
+	public float alturaPeDente;
+	public float alturaDente;
+	public float circuloCabeca;
+	public float circuloPe;
+	public float distanciaEixos;
+	public float circuloCabecaInterno;
+	public float circuloPeInterno;
+	public float circuloPrimitivo2;
+	public float distanciaEixosInterno;
 	
 	@ManyToOne
 	@JoinColumn(nullable = false)
 	private Aluno aluno;
-	
-	@ManyToOne
-	@JoinColumn(nullable = false)
-	private Professor professor;
-	
+
 	public ResultadosEDR() {
 	}
 
-	public ResultadosEDR(Long id, float d, float p, float c, float ha, float hf, float h, float da, float df, float a,
-			float dai, float dfi, float ai, Aluno aluno, Professor professor) {
-		super();
+	public ResultadosEDR(Long id, float circuloPrimitivo1, float passo, float folgaCabeca, float alturaCabecaDente,
+			float alturaPeDente, float alturaDente, float circuloCabeca, float circuloPe, float distanciaEixos,
+			float circuloCabecaInterno, float circuloPeInterno, float circuloPrimitivo2, float distanciaEixosInterno,
+			Aluno aluno) {
 		this.id = id;
-		this.d = d;
-		this.p = p;
-		this.c = c;
-		this.ha = ha;
-		this.hf = hf;
-		this.h = h;
-		this.da = da;
-		this.df = df;
-		this.a = a;
-		this.dai = dai;
-		this.dfi = dfi;
-		this.ai = ai;
+		this.circuloPrimitivo1 = circuloPrimitivo1;
+		this.passo = passo;
+		this.folgaCabeca = folgaCabeca;
+		this.alturaCabecaDente = alturaCabecaDente;
+		this.alturaPeDente = alturaPeDente;
+		this.alturaDente = alturaDente;
+		this.circuloCabeca = circuloCabeca;
+		this.circuloPe = circuloPe;
+		this.distanciaEixos = distanciaEixos;
+		this.circuloCabecaInterno = circuloCabecaInterno;
+		this.circuloPeInterno = circuloPeInterno;
+		this.circuloPrimitivo2 = circuloPrimitivo2;
+		this.distanciaEixosInterno = distanciaEixosInterno;
 		this.aluno = aluno;
-		this.professor = professor;
 	}
 
 	public Long getId() {
@@ -69,6 +67,110 @@ public class ResultadosEDR {
 		this.id = id;
 	}
 
+	public float getCirculoPrimitivo1() {
+		return circuloPrimitivo1;
+	}
+
+	public void setCirculoPrimitivo1(float circuloPrimitivo1) {
+		this.circuloPrimitivo1 = circuloPrimitivo1;
+	}
+
+	public float getPasso() {
+		return passo;
+	}
+
+	public void setPasso(float passo) {
+		this.passo = passo;
+	}
+
+	public float getFolgaCabeca() {
+		return folgaCabeca;
+	}
+
+	public void setFolgaCabeca(float folgaCabeca) {
+		this.folgaCabeca = folgaCabeca;
+	}
+
+	public float getAlturaCabecaDente() {
+		return alturaCabecaDente;
+	}
+
+	public void setAlturaCabecaDente(float alturaCabecaDente) {
+		this.alturaCabecaDente = alturaCabecaDente;
+	}
+
+	public float getAlturaPeDente() {
+		return alturaPeDente;
+	}
+
+	public void setAlturaPeDente(float alturaPeDente) {
+		this.alturaPeDente = alturaPeDente;
+	}
+
+	public float getAlturaDente() {
+		return alturaDente;
+	}
+
+	public void setAlturaDente(float alturaDente) {
+		this.alturaDente = alturaDente;
+	}
+
+	public float getCirculoCabeca() {
+		return circuloCabeca;
+	}
+
+	public void setCirculoCabeca(float circuloCabeca) {
+		this.circuloCabeca = circuloCabeca;
+	}
+
+	public float getCirculoPe() {
+		return circuloPe;
+	}
+
+	public void setCirculoPe(float circuloPe) {
+		this.circuloPe = circuloPe;
+	}
+
+	public float getDistanciaEixos() {
+		return distanciaEixos;
+	}
+
+	public void setDistanciaEixos(float distanciaEixos) {
+		this.distanciaEixos = distanciaEixos;
+	}
+
+	public float getCirculoCabecaInterno() {
+		return circuloCabecaInterno;
+	}
+
+	public void setCirculoCabecaInterno(float circuloCabecaInterno) {
+		this.circuloCabecaInterno = circuloCabecaInterno;
+	}
+
+	public float getCirculoPeInterno() {
+		return circuloPeInterno;
+	}
+
+	public void setCirculoPeInterno(float circuloPeInterno) {
+		this.circuloPeInterno = circuloPeInterno;
+	}
+
+	public float getCirculoPrimitivo2() {
+		return circuloPrimitivo2;
+	}
+
+	public void setCirculoPrimitivo2(float circuloPrimitivo2) {
+		this.circuloPrimitivo2 = circuloPrimitivo2;
+	}
+
+	public float getDistanciaEixosInterno() {
+		return distanciaEixosInterno;
+	}
+
+	public void setDistanciaEixosInterno(float distanciaEixosInterno) {
+		this.distanciaEixosInterno = distanciaEixosInterno;
+	}
+
 	public Aluno getAluno() {
 		return aluno;
 	}
@@ -77,113 +179,11 @@ public class ResultadosEDR {
 		this.aluno = aluno;
 	}
 
-	public Professor getProfessor() {
-		return professor;
-	}
-
-	public void setProfessor(Professor professor) {
-		this.professor = professor;
-	}
-
-	public float getD() {
-		return d;
-	}
-
-	public void setD(float d) {
-		this.d = d;
-	}
-
-	public float getP() {
-		return p;
-	}
-
-	public void setP(float p) {
-		this.p = p;
-	}
-
-	public float getC() {
-		return c;
-	}
-
-	public void setC(float c) {
-		this.c = c;
-	}
-
-	public float getHa() {
-		return ha;
-	}
-
-	public void setHa(float ha) {
-		this.ha = ha;
-	}
-
-	public float getHf() {
-		return hf;
-	}
-
-	public void setHf(float hf) {
-		this.hf = hf;
-	}
-
-	public float getH() {
-		return h;
-	}
-
-	public void setH(float h) {
-		this.h = h;
-	}
-
-	public float getDa() {
-		return da;
-	}
-
-	public void setDa(float da) {
-		this.da = da;
-	}
-
-	public float getDf() {
-		return df;
-	}
-
-	public void setDf(float df) {
-		this.df = df;
-	}
-
-	public float getA() {
-		return a;
-	}
-
-	public void setA(float a) {
-		this.a = a;
-	}
-
-	public float getDai() {
-		return dai;
-	}
-
-	public void setDai(float dai) {
-		this.dai = dai;
-	}
-
-	public float getDfi() {
-		return dfi;
-	}
-
-	public void setDfi(float dfi) {
-		this.dfi = dfi;
-	}
-
-	public float getAi() {
-		return ai;
-	}
-
-	public void setAi(float ai) {
-		this.ai = ai;
-	}
-
 	@Override
 	public int hashCode() {
-		return Objects.hash(a, ai, c, d, da, dai, df, dfi, h, ha, hf, p);
+		return Objects.hash(alturaCabecaDente, alturaDente, alturaPeDente, aluno, circuloCabeca, circuloCabecaInterno,
+				circuloPe, circuloPeInterno, circuloPrimitivo1, circuloPrimitivo2, distanciaEixos,
+				distanciaEixosInterno, folgaCabeca, id, passo);
 	}
 
 	@Override
@@ -195,23 +195,31 @@ public class ResultadosEDR {
 		if (getClass() != obj.getClass())
 			return false;
 		ResultadosEDR other = (ResultadosEDR) obj;
-		return Float.floatToIntBits(a) == Float.floatToIntBits(other.a)
-				&& Float.floatToIntBits(ai) == Float.floatToIntBits(other.ai)
-				&& Float.floatToIntBits(c) == Float.floatToIntBits(other.c)
-				&& Float.floatToIntBits(d) == Float.floatToIntBits(other.d)
-				&& Float.floatToIntBits(da) == Float.floatToIntBits(other.da)
-				&& Float.floatToIntBits(dai) == Float.floatToIntBits(other.dai)
-				&& Float.floatToIntBits(df) == Float.floatToIntBits(other.df)
-				&& Float.floatToIntBits(dfi) == Float.floatToIntBits(other.dfi)
-				&& Float.floatToIntBits(h) == Float.floatToIntBits(other.h)
-				&& Float.floatToIntBits(ha) == Float.floatToIntBits(other.ha)
-				&& Float.floatToIntBits(hf) == Float.floatToIntBits(other.hf)
-				&& Float.floatToIntBits(p) == Float.floatToIntBits(other.p);
+		return Float.floatToIntBits(alturaCabecaDente) == Float.floatToIntBits(other.alturaCabecaDente)
+				&& Float.floatToIntBits(alturaDente) == Float.floatToIntBits(other.alturaDente)
+				&& Float.floatToIntBits(alturaPeDente) == Float.floatToIntBits(other.alturaPeDente)
+				&& Objects.equals(aluno, other.aluno)
+				&& Float.floatToIntBits(circuloCabeca) == Float.floatToIntBits(other.circuloCabeca)
+				&& Float.floatToIntBits(circuloCabecaInterno) == Float.floatToIntBits(other.circuloCabecaInterno)
+				&& Float.floatToIntBits(circuloPe) == Float.floatToIntBits(other.circuloPe)
+				&& Float.floatToIntBits(circuloPeInterno) == Float.floatToIntBits(other.circuloPeInterno)
+				&& Float.floatToIntBits(circuloPrimitivo1) == Float.floatToIntBits(other.circuloPrimitivo1)
+				&& Float.floatToIntBits(circuloPrimitivo2) == Float.floatToIntBits(other.circuloPrimitivo2)
+				&& Float.floatToIntBits(distanciaEixos) == Float.floatToIntBits(other.distanciaEixos)
+				&& Float.floatToIntBits(distanciaEixosInterno) == Float.floatToIntBits(other.distanciaEixosInterno)
+				&& Float.floatToIntBits(folgaCabeca) == Float.floatToIntBits(other.folgaCabeca)
+				&& Objects.equals(id, other.id) && Float.floatToIntBits(passo) == Float.floatToIntBits(other.passo);
 	}
 
 	@Override
 	public String toString() {
-		return "Resultados [d=" + d + ", p=" + p + ", c=" + c + ", ha=" + ha + ", hf=" + hf + ", h=" + h + ", da=" + da
-				+ ", df=" + df + ", a=" + a + ", dai=" + dai + ", dfi=" + dfi + ", ai=" + ai + "]";
+		return "ResultadosEDR [id=" + id + ", circuloPrimitivo1=" + circuloPrimitivo1 + ", passo=" + passo
+				+ ", folgaCabeca=" + folgaCabeca + ", alturaCabecaDente=" + alturaCabecaDente + ", alturaPeDente="
+				+ alturaPeDente + ", alturaDente=" + alturaDente + ", circuloCabeca=" + circuloCabeca + ", circuloPe="
+				+ circuloPe + ", distanciaEixos=" + distanciaEixos + ", circuloCabecaInterno=" + circuloCabecaInterno
+				+ ", circuloPeInterno=" + circuloPeInterno + ", circuloPrimitivo2=" + circuloPrimitivo2
+				+ ", distanciaEixosInterno=" + distanciaEixosInterno + ", aluno=" + aluno + "]";
 	}
+
+	
 }

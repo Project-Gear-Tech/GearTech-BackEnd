@@ -11,48 +11,38 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="resultado_engrenagem_dentes_conicos")
+@Table(name = "resultado_engrenagem_dentes_conicos")
 public class ResultadosEDC {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	public float diametro_coroa;
-	public float passo_axial;
-	public float raio_topo_coroa;
-	public float diametro_primitivo;
-	public float passo_coroa;
-	public float diametro_externo;
-	public float raio_topo_coroa2;
-	public float parafuso_sem_fim;
-	public float passo_axial_parafuso;
-	public float altura_elevacao;
-	
+	public float circuloPrimitivo1;
+	public float circuloPrimitivo2;
+	public float anguloConeCabe1;
+	public float anguloConeCabe2;
+	public float anguloPrimitivo1;
+	public float anguloPrimitivo2;
+	public float anguloEixos;
+
 	@ManyToOne
 	@JoinColumn(nullable = false)
 	private Aluno aluno;
-	
-	@ManyToOne
-	@JoinColumn(nullable = false)
-	private Professor professor;
 
 	public ResultadosEDC() {
 	}
 
-	public ResultadosEDC(Long id, float diametro_coroa, float passo_axial, float raio_topo_coroa, float diametro_primitivo, float passo_coroa, float diametro_externo, float raio_topo_coroa2, float parafuso_sem_fim, float passo_axial_parafuso, float altura_elevacao, Aluno aluno, Professor professor) {
+	public ResultadosEDC(Long id, float circuloPrimitivo1, float circuloPrimitivo2, float anguloConeCabe1,
+			float anguloConeCabe2, float anguloPrimitivo1, float anguloPrimitivo2, float anguloEixos, Aluno aluno) {
 		this.id = id;
-		this.diametro_coroa = diametro_coroa;
-		this.passo_axial = passo_axial;
-		this.raio_topo_coroa = raio_topo_coroa;
-		this.diametro_primitivo = diametro_primitivo;
-		this.passo_coroa = passo_coroa;
-		this.diametro_externo = diametro_externo;
-		this.raio_topo_coroa2 = raio_topo_coroa2;
-		this.parafuso_sem_fim = parafuso_sem_fim;
-		this.passo_axial_parafuso = passo_axial_parafuso;
-		this.altura_elevacao = altura_elevacao;
+		this.circuloPrimitivo1 = circuloPrimitivo1;
+		this.circuloPrimitivo2 = circuloPrimitivo2;
+		this.anguloConeCabe1 = anguloConeCabe1;
+		this.anguloConeCabe2 = anguloConeCabe2;
+		this.anguloPrimitivo1 = anguloPrimitivo1;
+		this.anguloPrimitivo2 = anguloPrimitivo2;
+		this.anguloEixos = anguloEixos;
 		this.aluno = aluno;
-		this.professor = professor;
 	}
 
 	public Long getId() {
@@ -63,84 +53,60 @@ public class ResultadosEDC {
 		this.id = id;
 	}
 
-	public float getDiametro_coroa() {
-		return diametro_coroa;
+	public float getCirculoPrimitivo1() {
+		return circuloPrimitivo1;
 	}
 
-	public void setDiametro_coroa(float diametro_coroa) {
-		this.diametro_coroa = diametro_coroa;
+	public void setCirculoPrimitivo1(float circuloPrimitivo1) {
+		this.circuloPrimitivo1 = circuloPrimitivo1;
 	}
 
-	public float getPasso_axial() {
-		return passo_axial;
+	public float getCirculoPrimitivo2() {
+		return circuloPrimitivo2;
 	}
 
-	public void setPasso_axial(float passo_axial) {
-		this.passo_axial = passo_axial;
+	public void setCirculoPrimitivo2(float circuloPrimitivo2) {
+		this.circuloPrimitivo2 = circuloPrimitivo2;
 	}
 
-	public float getRaio_topo_coroa() {
-		return raio_topo_coroa;
+	public float getAnguloConeCabe1() {
+		return anguloConeCabe1;
 	}
 
-	public void setRaio_topo_coroa(float raio_topo_coroa) {
-		this.raio_topo_coroa = raio_topo_coroa;
+	public void setAnguloConeCabe1(float anguloConeCabe1) {
+		this.anguloConeCabe1 = anguloConeCabe1;
 	}
 
-	public float getDiametro_primitivo() {
-		return diametro_primitivo;
+	public float getAnguloConeCabe2() {
+		return anguloConeCabe2;
 	}
 
-	public void setDiametro_primitivo(float diametro_primitivo) {
-		this.diametro_primitivo = diametro_primitivo;
+	public void setAnguloConeCabe2(float anguloConeCabe2) {
+		this.anguloConeCabe2 = anguloConeCabe2;
 	}
 
-	public float getPasso_coroa() {
-		return passo_coroa;
+	public float getAnguloPrimitivo1() {
+		return anguloPrimitivo1;
 	}
 
-	public void setPasso_coroa(float passo_coroa) {
-		this.passo_coroa = passo_coroa;
+	public void setAnguloPrimitivo1(float anguloPrimitivo1) {
+		this.anguloPrimitivo1 = anguloPrimitivo1;
 	}
 
-	public float getDiametro_externo() {
-		return diametro_externo;
+	public float getAnguloPrimitivo2() {
+		return anguloPrimitivo2;
 	}
 
-	public void setDiametro_externo(float diametro_externo) {
-		this.diametro_externo = diametro_externo;
+	public void setAnguloPrimitivo2(float anguloPrimitivo2) {
+		this.anguloPrimitivo2 = anguloPrimitivo2;
 	}
 
-	public float getRaio_topo_coroa2() {
-		return raio_topo_coroa2;
+	public float getAnguloEixos() {
+		return anguloEixos;
 	}
 
-	public void setRaio_topo_coroa2(float raio_topo_coroa2) {
-		this.raio_topo_coroa2 = raio_topo_coroa2;
-	}
-
-	public float getParafuso_sem_fim() {
-		return parafuso_sem_fim;
-	}
-
-	public void setParafuso_sem_fim(float parafuso_sem_fim) {
-		this.parafuso_sem_fim = parafuso_sem_fim;
-	}
-
-	public float getPasso_axial_parafuso() {
-		return passo_axial_parafuso;
-	}
-
-	public void setPasso_axial_parafuso(float passo_axial_parafuso) {
-		this.passo_axial_parafuso = passo_axial_parafuso;
-	}
-
-	public float getAltura_elevacao() {
-		return altura_elevacao;
-	}
-
-	public void setAltura_elevacao(float altura_elevacao) {
-		this.altura_elevacao = altura_elevacao;
+	public void setAnguloEixos(float anguloEixos) {
+		this.anguloEixos = anguloEixos;
 	}
 
 	public Aluno getAluno() {
@@ -151,19 +117,10 @@ public class ResultadosEDC {
 		this.aluno = aluno;
 	}
 
-	public Professor getProfessor() {
-		return professor;
-	}
-
-	public void setProfessor(Professor professor) {
-		this.professor = professor;
-	}
-
 	@Override
 	public int hashCode() {
-		return Objects.hash(altura_elevacao, aluno, diametro_coroa, diametro_externo, diametro_primitivo, id,
-				parafuso_sem_fim, passo_axial, passo_axial_parafuso, passo_coroa, professor, raio_topo_coroa,
-				raio_topo_coroa2);
+		return Objects.hash(aluno, anguloConeCabe1, anguloConeCabe2, anguloEixos, anguloPrimitivo1, anguloPrimitivo2,
+				circuloPrimitivo1, circuloPrimitivo2, id);
 	}
 
 	@Override
@@ -175,28 +132,23 @@ public class ResultadosEDC {
 		if (getClass() != obj.getClass())
 			return false;
 		ResultadosEDC other = (ResultadosEDC) obj;
-		return Float.floatToIntBits(altura_elevacao) == Float.floatToIntBits(other.altura_elevacao)
-				&& Objects.equals(aluno, other.aluno)
-				&& Float.floatToIntBits(diametro_coroa) == Float.floatToIntBits(other.diametro_coroa)
-				&& Float.floatToIntBits(diametro_externo) == Float.floatToIntBits(other.diametro_externo)
-				&& Float.floatToIntBits(diametro_primitivo) == Float.floatToIntBits(other.diametro_primitivo)
-				&& Objects.equals(id, other.id)
-				&& Float.floatToIntBits(parafuso_sem_fim) == Float.floatToIntBits(other.parafuso_sem_fim)
-				&& Float.floatToIntBits(passo_axial) == Float.floatToIntBits(other.passo_axial)
-				&& Float.floatToIntBits(passo_axial_parafuso) == Float.floatToIntBits(other.passo_axial_parafuso)
-				&& Float.floatToIntBits(passo_coroa) == Float.floatToIntBits(other.passo_coroa)
-				&& Objects.equals(professor, other.professor)
-				&& Float.floatToIntBits(raio_topo_coroa) == Float.floatToIntBits(other.raio_topo_coroa)
-				&& Float.floatToIntBits(raio_topo_coroa2) == Float.floatToIntBits(other.raio_topo_coroa2);
+		return Objects.equals(aluno, other.aluno)
+				&& Float.floatToIntBits(anguloConeCabe1) == Float.floatToIntBits(other.anguloConeCabe1)
+				&& Float.floatToIntBits(anguloConeCabe2) == Float.floatToIntBits(other.anguloConeCabe2)
+				&& Float.floatToIntBits(anguloEixos) == Float.floatToIntBits(other.anguloEixos)
+				&& Float.floatToIntBits(anguloPrimitivo1) == Float.floatToIntBits(other.anguloPrimitivo1)
+				&& Float.floatToIntBits(anguloPrimitivo2) == Float.floatToIntBits(other.anguloPrimitivo2)
+				&& Float.floatToIntBits(circuloPrimitivo1) == Float.floatToIntBits(other.circuloPrimitivo1)
+				&& Float.floatToIntBits(circuloPrimitivo2) == Float.floatToIntBits(other.circuloPrimitivo2)
+				&& Objects.equals(id, other.id);
 	}
 
 	@Override
 	public String toString() {
-		return "ResultadosEDC [id=" + id + ", diametro_coroa=" + diametro_coroa + ", passo_axial=" + passo_axial
-				+ ", raio_topo_coroa=" + raio_topo_coroa + ", diametro_primitivo=" + diametro_primitivo
-				+ ", passo_coroa=" + passo_coroa + ", diametro_externo=" + diametro_externo + ", raio_topo_coroa2="
-				+ raio_topo_coroa2 + ", parafuso_sem_fim=" + parafuso_sem_fim + ", passo_axial_parafuso="
-				+ passo_axial_parafuso + ", altura_elevacao=" + altura_elevacao + ", aluno=" + aluno + ", professor="
-				+ professor + "]";
+		return "ResultadosEDC [id=" + id + ", circuloPrimitivo1=" + circuloPrimitivo1 + ", circuloPrimitivo2="
+				+ circuloPrimitivo2 + ", anguloConeCabe1=" + anguloConeCabe1 + ", anguloConeCabe2=" + anguloConeCabe2
+				+ ", anguloPrimitivo1=" + anguloPrimitivo1 + ", anguloPrimitivo2=" + anguloPrimitivo2 + ", anguloEixos="
+				+ anguloEixos + ", aluno=" + aluno + "]";
 	}
+
 }

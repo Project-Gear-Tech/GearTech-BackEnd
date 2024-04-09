@@ -2,6 +2,7 @@ package com.GearTech.geartech.entity;
 
 import java.util.Objects;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -11,10 +12,12 @@ import jakarta.persistence.Table;
 public class Aluno {
 
 	@Id
+	@Column(length=8)
 	private Long numMatricula;
 	private String nome;
 	private String email;
 	private String turma;
+	@Column(length=20)
 	private String senha;
 	
 	public Aluno() {

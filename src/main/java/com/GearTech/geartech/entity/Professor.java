@@ -2,6 +2,7 @@ package com.GearTech.geartech.entity;
 
 import java.util.Objects;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -14,6 +15,7 @@ public class Professor {
 	private Long nif;
 	private String nome;
 	private String email;
+	@Column(length=20)
 	private String senha;
 	
 	public Professor() {

@@ -5,40 +5,36 @@ import java.util.Objects;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="resultado_engrenagem_dentes_helicoidas")
+@Table(name = "resultado_engrenagem_dentes_helicoidas")
 public class ResultadosEDH {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    public float diametro_primitivo;
-    public float modulo_normal;
-    public float passo_normal;
-    public float circulo_primitivo;
-    public float circulo_cabeca;
-    public float distancia_eixos_interno;
-    
-    @ManyToOne
-	@JoinColumn(nullable = false)
-	private Aluno aluno;
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
+	public float circuloPrimitivo1;
+	public float circuloPrimitivo2;
+	public float moduloNormal;
+	public float passoNormal;
+	public float passoHelicoidal;
+	public float distanciaEntreEixos;
+
 	@ManyToOne
 	@JoinColumn(nullable = false)
-	private Professor professor;
+	private Aluno aluno;
 
 	public ResultadosEDH() {
 	}
 
-	public ResultadosEDH(Long id, float diametro_primitivo, float modulo_normal, float passo_normal, float circulo_primitivo, float circulo_cabeca, float distancia_eixos_interno, Aluno aluno, Professor professor) {
+	public ResultadosEDH(Long id, float circuloPrimitivo1, float circuloPrimitivo2, float moduloNormal,
+			float passoNormal, float passoHelicoidal, float distanciaEntreEixos, Aluno aluno) {
 		this.id = id;
-		this.diametro_primitivo = diametro_primitivo;
-		this.modulo_normal = modulo_normal;
-		this.passo_normal = passo_normal;
-		this.circulo_primitivo = circulo_primitivo;
-		this.circulo_cabeca = circulo_cabeca;
-		this.distancia_eixos_interno = distancia_eixos_interno;
+		this.circuloPrimitivo1 = circuloPrimitivo1;
+		this.circuloPrimitivo2 = circuloPrimitivo2;
+		this.moduloNormal = moduloNormal;
+		this.passoNormal = passoNormal;
+		this.passoHelicoidal = passoHelicoidal;
+		this.distanciaEntreEixos = distanciaEntreEixos;
 		this.aluno = aluno;
-		this.professor = professor;
 	}
 
 	public Long getId() {
@@ -49,52 +45,52 @@ public class ResultadosEDH {
 		this.id = id;
 	}
 
-	public float getDiametro_primitivo() {
-		return diametro_primitivo;
+	public float getCirculoPrimitivo1() {
+		return circuloPrimitivo1;
 	}
 
-	public void setDiametro_primitivo(float diametro_primitivo) {
-		this.diametro_primitivo = diametro_primitivo;
+	public void setCirculoPrimitivo1(float circuloPrimitivo1) {
+		this.circuloPrimitivo1 = circuloPrimitivo1;
 	}
 
-	public float getModulo_normal() {
-		return modulo_normal;
+	public float getCirculoPrimitivo2() {
+		return circuloPrimitivo2;
 	}
 
-	public void setModulo_normal(float modulo_normal) {
-		this.modulo_normal = modulo_normal;
+	public void setCirculoPrimitivo2(float circuloPrimitivo2) {
+		this.circuloPrimitivo2 = circuloPrimitivo2;
 	}
 
-	public float getPasso_normal() {
-		return passo_normal;
+	public float getModuloNormal() {
+		return moduloNormal;
 	}
 
-	public void setPasso_normal(float passo_normal) {
-		this.passo_normal = passo_normal;
+	public void setModuloNormal(float moduloNormal) {
+		this.moduloNormal = moduloNormal;
 	}
 
-	public float getCirculo_primitivo() {
-		return circulo_primitivo;
+	public float getPassoNormal() {
+		return passoNormal;
 	}
 
-	public void setCirculo_primitivo(float circulo_primitivo) {
-		this.circulo_primitivo = circulo_primitivo;
+	public void setPassoNormal(float passoNormal) {
+		this.passoNormal = passoNormal;
 	}
 
-	public float getCirculo_cabeca() {
-		return circulo_cabeca;
+	public float getPassoHelicoidal() {
+		return passoHelicoidal;
 	}
 
-	public void setCirculo_cabeca(float circulo_cabeca) {
-		this.circulo_cabeca = circulo_cabeca;
+	public void setPassoHelicoidal(float passoHelicoidal) {
+		this.passoHelicoidal = passoHelicoidal;
 	}
 
-	public float getDistancia_eixos_interno() {
-		return distancia_eixos_interno;
+	public float getDistanciaEntreEixos() {
+		return distanciaEntreEixos;
 	}
 
-	public void setDistancia_eixos_interno(float distancia_eixos_interno) {
-		this.distancia_eixos_interno = distancia_eixos_interno;
+	public void setDistanciaEntreEixos(float distanciaEntreEixos) {
+		this.distanciaEntreEixos = distanciaEntreEixos;
 	}
 
 	public Aluno getAluno() {
@@ -104,19 +100,11 @@ public class ResultadosEDH {
 	public void setAluno(Aluno aluno) {
 		this.aluno = aluno;
 	}
-
-	public Professor getProfessor() {
-		return professor;
-	}
-
-	public void setProfessor(Professor professor) {
-		this.professor = professor;
-	}
-
+	
 	@Override
 	public int hashCode() {
-		return Objects.hash(aluno, circulo_cabeca, circulo_primitivo, diametro_primitivo, distancia_eixos_interno, id,
-				modulo_normal, passo_normal, professor);
+		return Objects.hash(aluno, circuloPrimitivo1, circuloPrimitivo2, distanciaEntreEixos, id, moduloNormal,
+				passoHelicoidal, passoNormal);
 	}
 
 	@Override
@@ -129,21 +117,21 @@ public class ResultadosEDH {
 			return false;
 		ResultadosEDH other = (ResultadosEDH) obj;
 		return Objects.equals(aluno, other.aluno)
-				&& Float.floatToIntBits(circulo_cabeca) == Float.floatToIntBits(other.circulo_cabeca)
-				&& Float.floatToIntBits(circulo_primitivo) == Float.floatToIntBits(other.circulo_primitivo)
-				&& Float.floatToIntBits(diametro_primitivo) == Float.floatToIntBits(other.diametro_primitivo)
-				&& Float.floatToIntBits(distancia_eixos_interno) == Float.floatToIntBits(other.distancia_eixos_interno)
+				&& Float.floatToIntBits(circuloPrimitivo1) == Float.floatToIntBits(other.circuloPrimitivo1)
+				&& Float.floatToIntBits(circuloPrimitivo2) == Float.floatToIntBits(other.circuloPrimitivo2)
+				&& Float.floatToIntBits(distanciaEntreEixos) == Float.floatToIntBits(other.distanciaEntreEixos)
 				&& Objects.equals(id, other.id)
-				&& Float.floatToIntBits(modulo_normal) == Float.floatToIntBits(other.modulo_normal)
-				&& Float.floatToIntBits(passo_normal) == Float.floatToIntBits(other.passo_normal)
-				&& Objects.equals(professor, other.professor);
+				&& Float.floatToIntBits(moduloNormal) == Float.floatToIntBits(other.moduloNormal)
+				&& Float.floatToIntBits(passoHelicoidal) == Float.floatToIntBits(other.passoHelicoidal)
+				&& Float.floatToIntBits(passoNormal) == Float.floatToIntBits(other.passoNormal);
 	}
 
 	@Override
 	public String toString() {
-		return "ResultadosEDH [id=" + id + ", diametro_primitivo=" + diametro_primitivo + ", modulo_normal="
-				+ modulo_normal + ", passo_normal=" + passo_normal + ", circulo_primitivo=" + circulo_primitivo
-				+ ", circulo_cabeca=" + circulo_cabeca + ", distancia_eixos_interno=" + distancia_eixos_interno
-				+ ", aluno=" + aluno + ", professor=" + professor + "]";
+		return "ResultadosEDH [id=" + id + ", circuloPrimitivo1=" + circuloPrimitivo1 + ", circuloPrimitivo2="
+				+ circuloPrimitivo2 + ", moduloNormal=" + moduloNormal + ", passoNormal=" + passoNormal
+				+ ", passoHelicoidal=" + passoHelicoidal + ", distanciaEntreEixos=" + distanciaEntreEixos + ", aluno="
+				+ aluno + "]";
 	}
+
 }
