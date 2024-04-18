@@ -16,7 +16,7 @@ import com.GearTech.geartech.entity.ResultadosEDH;
 import com.GearTech.geartech.repository.ResultadosEDHRepository;
 
 @RestController
-@RequestMapping("/resultado_engrenagem_dentes_helicoidas")
+@RequestMapping("/resultadoDentesHelicoidas")
 public class ResultadosEDHController {
 
 	@Autowired

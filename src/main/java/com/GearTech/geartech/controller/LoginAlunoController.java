@@ -61,5 +61,4 @@ public class LoginAlunoController {
             this.senha = senha;
         }
     }
-
 }

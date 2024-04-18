@@ -16,7 +16,7 @@ import com.GearTech.geartech.entity.ResultadosEDR;
 import com.GearTech.geartech.repository.ResultadosEDRRepository;
 
 @RestController
-@RequestMapping("/resultado_engrenagem_dentes_retos")
+@RequestMapping("/resultadoDentesRetos")
 public class ResultadosEDRControler {
 	
 	@Autowired

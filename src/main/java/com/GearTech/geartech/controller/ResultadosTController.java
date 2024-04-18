@@ -16,7 +16,7 @@ import com.GearTech.geartech.entity.ResultadosT;
 import com.GearTech.geartech.repository.ResultadosTRepository;
 
 @RestController
-@RequestMapping("/resultado_transmissoes")
+@RequestMapping("/resultadoTransmissoes")
 public class ResultadosTController {
 
 	@Autowired

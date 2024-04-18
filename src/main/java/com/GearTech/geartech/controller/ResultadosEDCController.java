@@ -16,7 +16,7 @@ import com.GearTech.geartech.entity.ResultadosEDC;
 import com.GearTech.geartech.repository.ResultadosEDCRepository;
 
 @RestController
-@RequestMapping("/resultado_engrenagem_dentes_conicos")
+@RequestMapping("/resultadoDentesConicos")
 public class ResultadosEDCController {
 
 	@Autowired
